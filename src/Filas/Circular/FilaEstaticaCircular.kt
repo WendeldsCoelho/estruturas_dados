@@ -25,8 +25,8 @@ class FilaEstaticaCircular(private val tamanho: Int = 10) : Enfileiravel {
 
             if(ponteiroInicio == dados.size){
                 ponteiroInicio = 0
-                quantidade--
             }
+            quantidade--
         }
         else
             println("Queue is empty.")

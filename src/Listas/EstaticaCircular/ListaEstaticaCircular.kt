@@ -19,7 +19,7 @@ class ListaEstaticaCircular (private val tamanho: Int  = 10): Listavel{
             print("List is full!")
     }
     override fun inserir (posicao: Int, dado: Any?){
-        if(estaCheia()){
+        if(!estaCheia()){
             if(posicao >= 0 && posicao<=quantidade){
                 var pontoManipulacao = (ponteiroInicio+posicao)% dados.size
 
@@ -48,22 +48,23 @@ class ListaEstaticaCircular (private val tamanho: Int  = 10): Listavel{
         else
             print("List is full!")
     }
-    override fun selecionarUm(posicao: Int): Any?{
+    override fun selecionarUm(posicao: Int): Any? {
         var elemento: Any? = null
-        if(estaVazia()){
-            if(posicao>=0 && posicao < quantidade) {
-                var pontoManipulacao = (ponteiroInicio + posicao) % dados.size
-                 elemento = dados[pontoManipulacao]
+        if (!estaVazia()) {
+            if (posicao >= 0 && posicao < quantidade) {
+                val pontoManipulacao = (ponteiroInicio + posicao) % dados.size
+                elemento = dados[pontoManipulacao]
+            } else {
+                println("Invalid position")
             }
-            else
-                print("Posição informada inválida")
+        } else {
+            println("List is empty")
         }
-        else
-            print("List is empty")
         return elemento
     }
+
     override fun atualizar(posicao: Int, dado: Any?){
-        if(estaVazia()){
+        if(!estaVazia()){
             if(posicao>=0 && posicao < quantidade) {
                 var pontoManipulacao = (ponteiroInicio + posicao) % dados.size
                 dados[pontoManipulacao] = dado
@@ -77,7 +78,7 @@ class ListaEstaticaCircular (private val tamanho: Int  = 10): Listavel{
     }
     override fun apagar(posicao: Int): Any?{
         var elementoTemp: Any? = null
-        if(estaVazia()){
+        if(!estaVazia()){
             if(posicao >= 0 && posicao < quantidade) {
                 var pontoManipulacao = (ponteiroInicio + posicao) % dados.size
                 elementoTemp = dados[pontoManipulacao]
@@ -90,7 +91,7 @@ class ListaEstaticaCircular (private val tamanho: Int  = 10): Listavel{
                 }
                 ponteiroFim--
                 if(ponteiroFim == -1){
-                    ponteiroFim = dados.size - 1 // Corrigido de "=="" para "="
+                    ponteiroFim = dados.size - 1
                 }
                 quantidade--
             }

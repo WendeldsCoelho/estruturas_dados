@@ -80,7 +80,7 @@ class ListaEstaticaCircular (private val tamanho: Int  = 10): Listavel{
         var elementoTemp: Any? = null
         if(!estaVazia()){
             if(posicao >= 0 && posicao < quantidade) {
-                var pontoManipulacao = (ponteiroInicio + posicao) % dados.size
+                var pontoManipulacao = (ponteiroInicio+ posicao) % dados.size
                 elementoTemp = dados[pontoManipulacao]
                 var ponteiroAux = pontoManipulacao
                 for(i in posicao until(quantidade-1)){

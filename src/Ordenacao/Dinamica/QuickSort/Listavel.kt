@@ -1,7 +1,6 @@
 package Ordenacao.Dinamica.QuickSort
 
 interface Listavel {
-    // Metodos principais
     fun anexar(dado: Any?)
     fun inserir(posicao: Int, dado: Any?)
     fun selecionar(posicao: Int): Any?

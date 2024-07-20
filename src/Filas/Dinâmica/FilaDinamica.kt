@@ -40,7 +40,10 @@ class FilaDinamica(var tamanho: Int = 10) : Enfileiravel {
         return elementoTemp
     }
     override fun atualizar(dado: Any?){
-
+        if (!estaVazia())
+            ponteiroInicio?.dado = dado
+        else
+            println("Queue is empty")
     }
     override fun frente(): Any?{
         var elementoTemp : Any? = null

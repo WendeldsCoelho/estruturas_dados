@@ -1,4 +1,4 @@
-package Ordenacao.Dinamica.QuickSort
+package Ordenacao.Dinamica.MergeSort
 
 interface Listavel {
     fun anexar(dado: Any?)

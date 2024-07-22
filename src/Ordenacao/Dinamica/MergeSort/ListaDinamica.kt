@@ -1,4 +1,4 @@
-package Ordenacao.Dinamica.QuickSort
+package Ordenacao.Dinamica.MergeSort
 
 class ListaDinamica(private val tamanho: Int = 10) : Listavel {
 

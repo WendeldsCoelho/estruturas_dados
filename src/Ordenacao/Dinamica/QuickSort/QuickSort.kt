@@ -1,6 +1,13 @@
-package Ordenacao.Dinamica.QuickSort
+import Ordenacao.Dinamica.QuickSort.ListaDinamica
+import Ordenacao.Dinamica.QuickSort.Listavel
+import Ordenacao.Dinamica.QuickSort.NoDuplo
+import Ordenacao.Dinamica.QuickSort.Ordenavel
 
-class QuickSort(private var lista: Listavel): Ordenavel {
+class QuickSort(private var lista: ListaDinamica): Ordenavel {
+
+    override fun imprimir() {
+        println(lista.imprimir())
+    }
 
     private fun trocar(no1: NoDuplo, no2: NoDuplo) {
         val temp = no1.dado
@@ -8,30 +15,32 @@ class QuickSort(private var lista: Listavel): Ordenavel {
         no2.dado = temp
     }
 
-
-    private fun quickSort(inferior: NoDuplo?, superior: NoDuplo?) {
-        if (inferior != null && superior != null && inferior != superior && inferior.anterior != superior) {
-            val pivo = particao(inferior, superior)
-            quickSort(inferior, pivo?.anterior)
-            quickSort(pivo?.proximo, superior)
-        }
-    }
-
-
     override fun ordenar() {
-        quickSort(lista.ponteiroInicio, lista.ponteiroFim)
+        quicksort(lista.ponteiroInicio, lista.ponteiroFim)
     }
 
-    override fun imprimir(): String {
-        var ponteiroAuxiliar = lista.ponteiroInicio
-        var resultado = "["
-        for (i in 0 until quantidade) {
-            resultado += ponteiroAuxiliar?.dado
-            if (i != quantidade-1)
-                resultado += ","
+    private fun quicksort(inicio: NoDuplo?, fim: NoDuplo?) {
+        if (inicio != null && fim != null)	//lista não está vazia
+            if (inicio != fim && inicio != fim.proximo) {
+                val pivo = particionar(inicio, fim)
+                quicksort(inicio, pivo.anterior)
+                quicksort(pivo.proximo, fim)
+            }
+    }
 
-            ponteiroAuxiliar = ponteiroAuxiliar?.proximo
+    private fun particionar(inicio: NoDuplo, fim: NoDuplo): NoDuplo {
+        val pivoValor = inicio.dado
+        var i = inicio
+        var j = inicio.proximo
+
+        while (j != null && j != fim.proximo) {
+            if ((j.dado as Int) < (pivoValor as Int)) {
+                i = i.proximo ?: i
+                trocar(i, j)
+            }
+            j = j.proximo
         }
-        return "$resultado]"
+        trocar(i, inicio)
+        return i
     }
 }

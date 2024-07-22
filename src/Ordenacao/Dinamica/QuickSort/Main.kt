@@ -1,7 +1,9 @@
 package Ordenacao.Dinamica.QuickSort
 
+import QuickSort
+
 fun main()  {
-    var lista: Listavel = ListaDinamica(20)
+    var lista = ListaDinamica(20)
     lista.anexar(5)
     lista.anexar(8)
     lista.anexar(2)
@@ -9,7 +11,7 @@ fun main()  {
     lista.anexar(1)
 
 
-    var b: Ordenavel = QuickSort(lista)
+    var b = QuickSort(lista)
     b.imprimir()
     b.ordenar()
     b.imprimir()

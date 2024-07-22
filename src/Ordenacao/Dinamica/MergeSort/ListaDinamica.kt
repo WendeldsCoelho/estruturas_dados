@@ -5,7 +5,7 @@ class ListaDinamica(private val tamanho: Int = 10) : Listavel {
     var ponteiroInicio: NoDuplo? = null
     var ponteiroFim: NoDuplo? = null
     private var quantidade = 0
-    override fun anexar(dado: Any?) {
+    override fun anexar(dado: Int) {
         if (!estaCheia()) {
             val noTemp = NoDuplo(dado)
             //noTemp.dado = dado

@@ -1,7 +1,7 @@
 package Ordenacao.Dinamica.MergeSort
 
 interface Listavel {
-    fun anexar(dado: Any?)
+    fun anexar(dado: Int)
     //fun inserir(posicao: Int, dado: Any?)
     //fun selecionar(posicao: Int): Any?
     //fun selecionarTodos(): Array<Any?>

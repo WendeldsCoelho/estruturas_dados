@@ -31,7 +31,6 @@ class ListaDinamica(var tamanho : Int? = 10) : Listavel {
                     ponteiroProximo = ponteiroProximo?.proximo
                 }
 
-
                 if (ponteiroAnterior != null)
                     ponteiroAnterior.proximo = noTemp
                 else
